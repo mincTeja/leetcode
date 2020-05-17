@@ -1,0 +1,25 @@
+class Solution {
+public:
+    vector<string> simplifiedFractions(int n) {
+        vector<string> v;
+        vector<float> v1;
+        if (n==1)
+            return v;
+        //string s="1/";
+        for(float j=1;j<=n;++j)
+        {
+            for(float i=2;i<=n;++i)
+            {
+                float div=(j/i);
+                
+                if(div<1 && div>0 && find(v1.begin(),v1.end(),div)==v1.end())
+                {
+                    v1.push_back(div);
+                    v.push_back(to_string((int)j)+"/"+to_string((int)i));
+                }
+                   
+            }
+        }
+        return v;
+    }
+};
